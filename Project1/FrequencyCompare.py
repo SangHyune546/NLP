@@ -28,9 +28,9 @@ with open('D:\\NLP\\Project1\\'+cmpTxt+'_out\\'+cmpTxt+'_'+Feature+'.txt', 'r',e
 print(srcTxt+' : ',src_word[:10])
 print(cmpTxt+' : ',cmp_word[:10])
 
-createFolder('D:\\NLP\\Project1\\'+srcTxt+'_'+cmpTxt+'_'+Feature)
+createFolder(os.getcwd()+'\\'+srcTxt+'_'+cmpTxt+'_'+Feature)
 
-with open('D:\\NLP\\Project1\\'+srcTxt+'_'+cmpTxt+'_'+Feature+'\\'+srcTxt+cmpTxt+'_'+Feature+'_'+'out.txt', 'w',encoding='UTF8') as f:
+with open(os.getcwd()+'\\'+srcTxt+'_'+cmpTxt+'_'+Feature+'\\'+srcTxt+cmpTxt+'_'+Feature+'_'+'out.txt', 'w',encoding='UTF8') as f:
     f.write("word,"+cmpTxt+","+srcTxt+","+ "\n")
     for w in range(len(cmp_word)):
         for c in range(len(src_word)):
