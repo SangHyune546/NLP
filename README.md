@@ -2,7 +2,7 @@
 NLP educational Project
 
 
-   # Order of execution
+   # Project 1's Order of execution
 
    1. python TextIndex.py
         - to indexing movie Scripts
