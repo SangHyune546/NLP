@@ -1,19 +1,20 @@
-from os import listdir
-from os.path import isfile, join
-import re
-
 pos_word = []
 neg_word = []
 
-fam_word = []
-cri_word = []
+Gen1_word = []
+Gen2_word = []
 
-fam_pos_word = []
-fam_neg_word = []
+Gen1_pos_word = []
+Gen1_neg_word = []
 
-cri_pos_word = []
-cri_neg_word = []
+Gen2_pos_word = []
+Gen2_neg_word = []
 
+
+print(' input 2 Genre to compare')
+
+Genre1 = input('input Genre1 : ')
+Genre2 = input('input Genre2 : ')
 
 with open('word_list/positive-words.txt', 'r',encoding='UTF8') as f:
     posw = f.read()
@@ -24,43 +25,44 @@ with open('word_list/negative-words.txt', 'r',encoding='UTF8') as f:
     neg_word = negw.splitlines()
 
 
-with open('Crime_out/Crime.txt', 'r',encoding='UTF8') as f:
-    cword = f.read()
-    cri_word = cword.splitlines()
+with open(Genre1+'_out\\'+Genre1+'.txt', 'r',encoding='UTF8') as f:
+    word1 = f.read()
+    Gen1_word = word1.splitlines()
 
-with open('Family_out/Family.txt', 'r',encoding='UTF8') as f:
-    fword = f.read()
-    fam_word = fword.splitlines()
+with open(Genre2+'_out\\'+Genre2+'.txt', 'r',encoding='UTF8') as f:
+    word2 = f.read()
+    Gen2_word = word2.splitlines()
 
 
-for w in range(len(fam_word)):
-    if fam_word[w].split(',')[0] in pos_word:
-        fam_pos_word.append(fam_word[w])
+for w in range(len(Gen1_word)):
+    if Gen1_word[w].split(',')[0] in pos_word:
+        Gen1_pos_word.append(Gen1_word[w])
 
-for w in range(len(fam_word)):
-    if fam_word[w].split(',')[0] in neg_word:
-        fam_neg_word.append(fam_word[w])
+for w in range(len(Gen1_word)):
+    if Gen1_word[w].split(',')[0] in neg_word:
+        Gen1_neg_word.append(Gen1_word[w])
 
-for w in range(len(cri_word)):
-    if cri_word[w].split(',')[0] in pos_word:
-        cri_pos_word.append(cri_word[w])
+for w in range(len(Gen2_word)):
+    if Gen2_word[w].split(',')[0] in pos_word:
+        Gen2_pos_word.append(Gen2_word[w])
 
-for w in range(len(cri_word)):
-    if cri_word[w].split(',')[0] in neg_word:
-        cri_neg_word.append(cri_word[w])
+for w in range(len(Gen2_word)):
+    if Gen2_word[w].split(',')[0] in neg_word:
+        Gen2_neg_word.append(Gen2_word[w])
 
-with open('Family_out/Family_pos.txt', 'w',encoding='UTF8') as f:
-    for w in fam_pos_word[:len(fam_pos_word)]:
+with open(Genre1+'_out\\'+Genre1+'_pos.txt', 'w',encoding='UTF8') as f:
+    for w in Gen1_pos_word[:len(Gen1_pos_word)]:
         f.write("%s" % (w)+"\n")
 
-with open('Family_out/Family_neg.txt', 'w',encoding='UTF8') as f:
-    for w in fam_neg_word[:len(fam_neg_word)]:
+with open(Genre1+'_out\\'+Genre1+'_neg.txt', 'w',encoding='UTF8') as f:
+    for w in Gen1_neg_word[:len(Gen1_neg_word)]:
         f.write("%s" % (w)+"\n")
 
-with open('Crime_out/Crime_pos.txt', 'w',encoding='UTF8') as f:
-    for w in cri_pos_word[:len(cri_pos_word)]:
+
+with open(Genre2+'_out\\'+Genre2+'_pos.txt', 'w',encoding='UTF8') as f:
+    for w in Gen2_pos_word[:len(Gen2_pos_word)]:
         f.write("%s" % (w)+"\n")
 
-with open('Crime_out/Crime_neg.txt', 'w',encoding='UTF8') as f:
-    for w in cri_neg_word[:len(cri_neg_word)]:
+with open(Genre2+'_out\\'+Genre2+'_neg.txt', 'w',encoding='UTF8') as f:
+    for w in Gen2_neg_word[:len(Gen2_neg_word)]:
         f.write("%s" % (w)+"\n")
