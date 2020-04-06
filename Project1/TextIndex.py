@@ -22,8 +22,7 @@ for name in files:
     with open(Uinput+'\\'+name, 'r',encoding='UTF8') as f:
         text = f.read()       
         words = re.sub('[-=+,#/\?:^$.@*\"※~&%ㆍ!』\\‘|\(\)\[\]\<\>`\'…》]', '', text).split()
-        #words = text.replace('int:',' ').replace('INT:',' ').replace("'s",' ').replace('}',' ').replace('{',' ').replace(']',' ').replace('[',' ').replace(';','').replace('.',' ').replace('*',' ').replace(':',' ').replace('"',' ').replace(',', ' ').replace('.',' ').replace('--',' ').replace('!',' ').replace('?',' ').replace('(',' ').replace(')',' ').replace('-',' ').replace('#',' ').split()
-
+       
     for i in range(0, len(words)):
         words[i] = words[i].lower()
 
