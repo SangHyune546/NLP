@@ -1,12 +1,22 @@
+import os
+import re
+
 from os import listdir
 from os.path import isfile, join
-import re
+
 
 stop_word = []
 r_word=[]
-dic = {}
 
+dic = {}
 iter = 1
+
+def createFolder(directory):
+    try:
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+    except OSError:
+        print ('Error: Creating directory. ' +  directory)
 
 with open('Stopword/SWord2.txt', 'r',encoding='UTF8') as f:
     sword = f.read()
@@ -14,7 +24,7 @@ with open('Stopword/SWord2.txt', 'r',encoding='UTF8') as f:
 
 Uinput = input('input Genre : ')
 
-files = [f for f in listdir('D:\\NLP\\Project1\\'+Uinput) if isfile(join('D:\\NLP\\Project1\\'+Uinput, f))]
+files = [f for f in listdir(os.getcwd()+'\\'+Uinput) if isfile(join(os.getcwd()+'\\'+Uinput, f))]
 print(files,"\n")
 print(len(files),"\n")
 
@@ -22,7 +32,7 @@ for name in files:
     with open(Uinput+'\\'+name, 'r',encoding='UTF8') as f:
         text = f.read()       
         words = re.sub('[-=+,#/\?:^$.@*\"※~&%ㆍ!』\\‘|\(\)\[\]\<\>`\'…》]', '', text).split()
-       
+
     for i in range(0, len(words)):
         words[i] = words[i].lower()
 
@@ -56,6 +66,8 @@ print("Top 10 words : \n")
 for w, c in lst[:10]:
     print(w, c)
 
-with open(Uinput+'_out//'+Uinput+'.txt', 'w',encoding='UTF8') as f:
+createFolder(os.getcwd()+'\\'+Uinput+'_out\\')
+
+with open(Uinput+'_out\\'+Uinput+'.txt', 'w',encoding='UTF8') as f:
     for w,c in lst[:len(lst)]:
         f.write("%s, %d" % (w,c)+"\n")
