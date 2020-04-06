@@ -3,6 +3,8 @@ NLP educational Project
 
 
    # Project 1's Order of execution
+   
+   @ Prokect 1 : Indexing some genre of movies script(.txt file) and compare with another genre's movie Script.(ex. word Frequency between of them) 
 
    1. python TextIndex.py
         - to indexing movie Scripts
