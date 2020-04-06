@@ -1,7 +1,7 @@
 # NLP
 NLP educational Project
 
-- Object of Project 1
+- Object of Project 1: 
 Indexing some genre of movies script(.txt file) and compare with another genre's movie Script.(ex. word Frequency between of them) 
 
 
